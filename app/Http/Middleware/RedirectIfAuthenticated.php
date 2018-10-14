@@ -19,11 +19,11 @@ class RedirectIfAuthenticated
     {
         
         if (Auth::guard($guard)->check()) {
-            if(Auth::user()->level == '1')
-            {
-                return redirect('admin/home');
+            // dd(Auth::user());
+            if(Auth::user()->level !== 1) {
+                return redirect('/home');
             }
-            return redirect('/home');
+            return $next($request);
         }
 
         

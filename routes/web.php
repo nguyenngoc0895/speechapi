@@ -19,18 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 ///User router 
+
+///route home
 Route::get('/home', 'HomeController@index')->name('home');
-
-///login admin
-Route::match(['get', 'post'], 'admin/login', 'AdminController@login')->name('admin.login');
-
-///route dashboard
-Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
-
-
-Route::group(['middleware' => ['auth']], function(){
-
-    ///route home
-    Route::get('admin/home', 'AdminController@dashboard')->name('admin.home');
-});
+    
 
