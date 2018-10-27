@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+<title>Welcome To | SpeechApi Admin</title>
 <!-- Favicon-->
 <link rel="icon" href="{{ asset('favicon.ico')}}" type="image/x-icon">
 
@@ -18,11 +18,11 @@
 <!-- Animation Css -->
 <link href="{{ asset('plugins/animate-css/animate.css') }}" rel="stylesheet" />
 
-<!-- Morris Chart Css-->
-<link href="{{ asset('plugins/morrisjs/morris.css') }}" rel="stylesheet" />
-
 <!-- Custom Css -->
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
 <link href="{{ asset('css/themes/all-themes.css') }}" rel="stylesheet"/>
+
+@section('header')
+    @show

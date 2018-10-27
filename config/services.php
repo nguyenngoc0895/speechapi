@@ -35,4 +35,15 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' =>env('272540133378728'),         // Your FACEBOOK Client ID
+        'client_secret' => env('4f074a0e1c13e170e41b5c6f81935a16'), // Your FACEBOOK Client Secret
+        'redirect' => 'http://localhost:8000/login/facebook/callback',
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),         // Your GOOGLE Client ID
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'), // Your GOOGLE Client Secret
+        'redirect' => 'http://your-callback-url',
+    ],
 ];

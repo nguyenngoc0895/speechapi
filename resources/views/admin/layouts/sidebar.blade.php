@@ -33,7 +33,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                        <a href="{{ route('admin.userList')}}">
                                 <i class="material-icons">account_box</i>
                                 <span>User Management</span>
                             </a>

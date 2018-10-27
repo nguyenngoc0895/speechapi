@@ -49,29 +49,37 @@
                                 @endif
                             </li>
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                            <div class="dropdown show">
+                                <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
+                              
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('user.profile', Auth::user()->id) }}">Profile</a>
+                                    <a class="dropdown-item" href="{{ route('password.edit') }}">Change Password</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
+                                    @csrf
                                     </form>
                                 </div>
-                            </li>
+                              </div>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-
+        @if(Session::has('message_error'))
+            <div class="alert alert-error alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+                <strong>{!! session('message_error') !!}</strong>
+            </div>
+        @endif 
+        @if(Session::has('message_success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+                <strong>{!! session('message_success') !!}</strong>
+            </div>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>
